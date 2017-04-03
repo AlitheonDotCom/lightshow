@@ -1,0 +1,33 @@
+#
+# Image data
+#
+
+images/
+*.tiff
+*.tif
+*.jpg
+*.crw
+*.cr2
+
+#
+# OSX
+#
+
+.DS_Store
+
+#
+# Windows
+#
+
+Thumbs.db
+
+#
+# Vim
+#
+
+# swap files
+[._]*.s[a-w][a-z]
+[._]s[a-w][a-z]
+
+# temp files
+*~
