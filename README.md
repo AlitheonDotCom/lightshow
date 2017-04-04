@@ -25,6 +25,7 @@ brew install gphoto2
 | --extension | The filename extension to use when generating images. | 'cr2' |
 | --cam-settings | A JSON object that maps camera settings to use for the acquisition. | See below |
 | --dmx | A JSON object that maps sequence labels to DMX inputs. | See below |
+| --dmx-dev-id | The device ID of your DMX controller. Run `ola_dev_info` to find your device ID. | 10 |
 
 ## Default Camera Configs
 

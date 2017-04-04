@@ -30,6 +30,7 @@ FILE_PREFIX = ARG_MAP['--prefix'] || Time.now.utc.iso8601
 FILE_EXTENSION = ARG_MAP['--extension'] || 'cr2'
 CAM_SETTINGS = JSON.parse(ARG_MAP['--cam-settings'] || JSON.generate(DEFAULT_CAM_SETTINGS))
 SEQUENCES = JSON.parse(ARG_MAP['--dmx'] || JSON.generate(DEFAULT_SEQUENCES))
+DMX_DEVICE_ID = (ARG_MAP['--dmx-dev-id'] || '10').to_i
 
 IMAGE_DIR += File::SEPARATOR unless IMAGE_DIR.end_with?(File::SEPARATOR)
 
@@ -40,6 +41,10 @@ raise 'gphoto2 was not found. Please install gPhoto2 and ensure it is available 
 cam_args = CAM_SETTINGS.map{ |k,v| "--set-config '#{k}=#{v}'" }.join(' ')
 
 FileUtils.mkdir_p(IMAGE_DIR)
+
+# Patch the port to the DMX universe in olad
+cmd = "ola_patch -d #{DMX_DEVICE_ID} -p 0 -u 1"
+puts Open3.capture3(cmd)
 
 SEQUENCES.each do |label, sequence|
   begin
