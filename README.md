@@ -33,8 +33,7 @@ brew install gphoto2
 {
   "iso": 100,
   "aperture": 5.6,
-  "imageformat": 40,
-  "shutterspeed": 0
+  "imageformat": 40
 }
 ```
 

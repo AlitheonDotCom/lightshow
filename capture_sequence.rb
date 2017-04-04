@@ -25,8 +25,7 @@ DEFAULT_SEQUENCES = {
 DEFAULT_CAM_SETTINGS = {
   'iso' => 100,
   'aperture' => 5.6,
-  'imageformat' => 40,
-  'shutterspeed' => 0
+  'imageformat' => 40
 }
 
 # Parse CLI args
