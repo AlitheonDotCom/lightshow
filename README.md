@@ -58,3 +58,35 @@ Run the script with a custom DMX sequence:
 ```
 ./capture_sequence.rb --dmx "{\"foo\":\"255,255,255,255\"}"
 ```
+
+# Troubleshooting
+
+## Can't Connect to Camera
+
+Try killing `PTPCamera`.
+
+```
+ps aux | grep PTPCamera
+kill FOO
+```
+
+## Can't Connect to DMX Controller
+
+Make sure you have the latest `RDM` drivers.
+
+For EntTec:
+1. Install PRO-Manager: http://support.enttec.com/aleph/?main_menu=Products&pn=79003
+2. Launch PRO-Manager
+3. Select your device from the drop-down list
+4. Click the "Update Firmware" button at the bottom and select "RDM"
+5. Exit the PRO-Manager when the update is complete
+6. Restart your computer
+
+Also, make sure that **only one software suite is running at a time**, i.e. kill `olad` before starting `PRO-Manager` and vice-versa.
+
+```
+ps aux | grep olad
+kill FOO
+```
+
+See this doc for more information: https://www.openlighting.org/ola/getting-started/device-specific-configuration/#Sending_DMX
